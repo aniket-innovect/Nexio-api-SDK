@@ -1,7 +1,7 @@
 ## Installation - NPM
 
 ```sh
-npm i bonaroo-able
+npm i 
 ```
 
 ## Installation - Browser

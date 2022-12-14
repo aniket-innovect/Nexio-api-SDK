@@ -1,0 +1,329 @@
+this.merchantId = "301310";
+
+/** Start of save card token request **/
+const options = {
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    authorization: 'Basic dXNlcl8zNTBkM2FjMDZjM2E0ODU4YTI5ZGZkZDAwZmJiZWUwNjphcGlLZXlfc2p4UkNiZVZCdTVHc3k='
+  },
+  body: JSON.stringify({
+    card: {
+      cardHolderName: 'John H Doe',
+      encryptedNumber: 'cu3yRktaYFK2LUC6DpNK289tYDsGRCi7cO+GeG0hkeYFvT7Y8/oY5r53obMz6Q/BZ38gk2u2Ufwy8ojBcX2sfNjG5jplGTXA4NNlSIUjMFfiHe1sff1JFpThoiW/IIlifGlbWu+S1/9pqWPTzJ2+DcjwohbHzsDahhYewFhXgC8qsK0ypi/Shlp+CwRITyIvbVXESD0xz3YOTRHeZLlChvVqN8z4ZzN8nm0MXkmT1wcpYI73bH4KdnPwNU3s7XxvP/ernQP73SHHAOKSLlz4F6AEHFjJiCoXzeLF7LwEjRdxDJ0sKVXbRk3i9BGh+8Nle2VYgjpUWtk2763QkvZiQQ==',
+      expirationMonth: '12',
+      expirationYear: '28',
+      cardType: 'visa',
+      securityCode: 927,
+      firstSix: '479300',
+      lastFour: '3313'
+    },
+    data: {
+      currency: 'EUR',
+      customer: {
+        billToAddressOne: '2147 West Silverlake Drive',
+        billToAddressTwo: 'Apt 42',
+        billToCity: 'Scranton',
+        billToCountry: 'US',
+        billToPhone: '1555555555',
+        billToPostal: '18503',
+        billToState: 'PA',
+        birthDate: '1990-12-05',
+        createdAtDate: '2005-03-01',
+        customerRef: 'RP006',
+        email: 'jdoe@example.com',
+        firstName: 'John',
+        invoice: 'IN0001',
+        lastName: 'Doe',
+        orderNumber: '210058A',
+        phone: '1555555555',
+        shipToAddressOne: '1725 Slough Avenue',
+        shipToAddressTwo: 'Suite 200',
+        shipToCity: 'Scranton',
+        shipToCountry: 'US',
+        shipToPhone: '1555555555',
+        shipToPostal: '18505',
+        shipToState: 'PA'
+      },
+      customFields: {exampleKey: 'Example string', exampleRefNumber: '094785'}
+    },
+    shouldUpdateCard: true,
+    token: '1a5416be-a5d5-4c24-b033-23a9916c0f81', // from saveCardOneTimeTokenApi function
+    merchantId: '100039'
+  })
+};
+
+fetch('https://api.nexiopaysandbox.com/pay/v3/saveCard', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+
+/** End of save card token request **/
+#
+#
+#
+#
+#
+#
+/** Start of save card token response **/
+
+{
+  "token": {
+    "firstSix": "479300",
+    "lastFour": "3313",
+    "cardType": "visa",
+    "token": "f252291d-45a6-45ac-a79f-c25c0645aa73"
+  },
+  "data": {
+    "customer": {
+      "birthDate": "1990-12-05",
+      "email": "jdoe@example.com",
+      "billToAddressOne": "2147 West Silverlake Drive",
+      "billToAddressTwo": "Apt 42",
+      "billToCity": "Scranton",
+      "billToState": "PA",
+      "billToPostal": "18503",
+      "billToCountry": "US",
+      "billToPhone": "1555555555"
+    }
+  },
+  "card": {
+    "expirationYear": "28",
+    "expirationMonth": "12",
+    "cardHolderName": "John H Doe",
+    "cardType": "visa"
+  },
+  "merchantId": "301310",
+  "shouldUpdateCard": true,
+  "kountResponse": {
+    "status": "success",
+    "rules": "{\"VERS\":\"0630\",\"MODE\":\"Q\",\"TRAN\":\"K5JK0SR2B5W9\",\"MERC\":\"717000\",\"SESS\":\"1a5416bea5d54c24b03323a9916c0f81\",\"ORDR\":\"1\",\"AUTO\":\"A\",\"SCOR\":\"29\",\"GEOX\":\"US\",\"BRND\":\"VISA\",\"REGN\":null,\"NETW\":\"N\",\"KAPT\":\"N\",\"CARDS\":\"1\",\"DEVICES\":\"1\",\"EMAILS\":\"1\",\"VELO\":\"0\",\"VMAX\":\"0\",\"SITE\":\"DEFAULT\",\"DEVICE_LAYERS\":\"....\",\"FINGERPRINT\":null,\"TIMEZONE\":null,\"LOCALTIME\":\" \",\"REGION\":null,\"COUNTRY\":null,\"PROXY\":null,\"JAVASCRIPT\":null,\"FLASH\":null,\"COOKIES\":null,\"HTTP_COUNTRY\":null,\"LANGUAGE\":null,\"MOBILE_DEVICE\":null,\"MOBILE_TYPE\":null,\"MOBILE_FORWARDER\":null,\"VOICE_DEVICE\":null,\"PC_REMOTE\":null,\"RULES_TRIGGERED\":0,\"COUNTERS_TRIGGERED\":0,\"REASON_CODE\":null,\"MASTERCARD\":\"\",\"DDFS\":null,\"DSR\":null,\"UAS\":null,\"BROWSER\":null,\"OS\":null,\"PIP_IPAD\":null,\"PIP_LAT\":null,\"PIP_LON\":null,\"PIP_COUNTRY\":null,\"PIP_REGION\":null,\"PIP_CITY\":null,\"PIP_ORG\":null,\"IP_IPAD\":null,\"IP_LAT\":null,\"IP_LON\":null,\"IP_COUNTRY\":null,\"IP_REGION\":null,\"IP_CITY\":null,\"IP_ORG\":null,\"WARNING_0\":\"399 BAD_OPTN Field: [UDF], Value: [The label [exampleKey] is not defined for merchant ID [717000]. The label [exampleRefNumber] is not defined for merchant ID [717000].]\",\"WARNING_COUNT\":1}"
+  },
+  "cardType": "visa",
+  "random-9906012": "5f81c94e-068f-49c1-b7ec-858f0008af93"
+}
+
+/** End of save card token response **/
+#
+#
+#
+#
+#
+#
+/** Start of card transaction request **/
+
+import axios from 'axios';
+
+const options = {
+  method: 'POST',
+  url: 'https://api.nexiopaysandbox.com/pay/v3/process',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    authorization: 'Basic dXNlcl81ZmRlMWVhZjcyYmU0MWIzYjZiZmYzOWI1YWI2Y2FhYTphcGlLZXlfNDB5SmZ0OVlMVDB1cXI='
+  },
+  data: {
+    data: {
+      currency: 'EUR',
+      allowedCardTypes: ['visa'],
+      cart: {
+        items: [
+          {
+            item: '913261',
+            description: 'Hammermill Premium 8.5 x 11 Color Copy Paper, 28 lbs. 500/Ream',
+            quantity: 8,
+            price: 16.49,
+            type: 'sale'
+          }
+        ]
+      },
+      customer: {
+        customerRef: 'RP006',
+        orderNumber: '210058A',
+        orderDate: '2021-08-26',
+        invoice: 'IN0001',
+        firstName: 'John',
+        lastName: 'Doe',
+        birthDate: '1990-12-05',
+        nationalIdentificationNumber: '5471300000000003',
+        billToAddressOne: '2147 West Silverlake Drive',
+        billToAddressTwo: 'Apt 42',
+        billToCity: 'Scranton',
+        billToState: 'PA',
+        billToPostal: '18503',
+        billToCountry: 'US',
+        billToPhone: '1555555555',
+        email: 'jdoe@example.com',
+        phone: '1555555555',
+        shipToAddressOne: '1725 Slough Avenue',
+        shipToAddressTwo: 'Suite 200',
+        shipToCity: 'Scranton',
+        shipToState: 'PA',
+        shipToPostal: '18505',
+        shipToCountry: 'US',
+        shipToPhone: '1555555555',
+        createdAtDate: '2005-03-01'
+      },
+      customFields: {exampleKey: 'Example string', exampleRefNumber: '094785'},
+      lodging: {
+        advanceDeposit: true,
+        checkInDate: '2026-01-05',
+        checkOutDate: '2026-01-08',
+        noShow: true,
+        roomNumber: 14,
+        roomRate: 143.99
+      },
+      amount: 29.99,
+      description: '[Description of the transaction]',
+      descriptor: '[Descriptor text]'
+    },
+    paymentMethod: 'card',
+    tokenex: {
+      token: 'eb50a022-d6de-4244-a1e6-dcb8522b2d19',
+      firstSix: '479300',
+      lastFour: '3313'
+    },
+    card: {
+      cardType: 'visa',
+      cardHolderName: 'John H Doe',
+      expirationMonth: '12',
+      expirationYear: '28',
+      securityCode: 927,
+      classification: 'business',
+      businessNumber: '1234567890',
+      password: '12'
+    },
+    processingOptions: {
+      check3ds: true,
+      checkFraud: true,
+      saveCardToken: true,
+      retryOnSoftDecline: false,
+      shouldUseFingerprint: true,
+      verboseResponse: false,
+      merchantId: '100039',
+      customerRedirectUrl: 'https://[your-ecommerce-website]',
+      paymentOptionTag: 'switch'
+    },
+    shouldUpdateCard: true,
+    isAuthOnly: false,
+    installment: {period: '10'},
+    clientIp: '10.0.0.1'
+  }
+};
+
+axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+
+/** End of card transaction request **/
+#
+#
+#
+#
+#
+#
+/** Start of Run card transaction iframe one time token request **/
+
+const options = {
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    authorization: 'Basic dXNlcl81ZmRlMWVhZjcyYmU0MWIzYjZiZmYzOWI1YWI2Y2FhYTphcGlLZXlfNDB5SmZ0OVlMVDB1cXI='
+  },
+  body: JSON.stringify({`
+    data: {currency: 'USD', amount: 29.99},
+    processingOptions: {
+      checkFraud: true,
+      verboseResponse: false,
+      verifyAvs: 0,
+      verifyCvc: false,
+      check3ds: false,
+      saveCardToken: true,
+      retryOnSoftDecline: false,
+      shouldUseFingerprint: true
+    },
+    shouldUpdateCard: true, 
+    uiOptions: {
+      displaySubmitButton: false,
+      hideBilling: {
+        hideAddressOne: false,
+        hideAddressTwo: false,
+        hideCity: false,
+        hideCountry: false,
+        hidePostal: false,
+        hidePhone: true,
+        hideState: false
+      },
+      hideCvc: false,
+      requireCvc: true,
+      forceExpirationSelection: true
+    },
+    isAuthOnly: false
+  })
+};
+
+fetch('https://api.nexiopaysandbox.com/pay/v3/token', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+
+/** End of Run card transaction iframe one time token request **/
+
+
+const axios = require('axios');
+
+const options = {
+  method: 'POST',
+  url: 'https://api.nexiopaysandbox.com/pay/v3/token',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    authorization: 'Basic dXNlcl81ZmRlMWVhZjcyYmU0MWIzYjZiZmYzOWI1YWI2Y2FhYTphcGlLZXlfNDB5SmZ0OVlMVDB1cXI='
+  },
+  data: {
+    data: {currency: 'USD', amount: 29.99},
+    processingOptions: {
+      checkFraud: true,
+      verboseResponse: false,
+      verifyAvs: 0,
+      verifyCvc: false,
+      check3ds: false,
+      saveCardToken: true,
+      retryOnSoftDecline: false,
+      shouldUseFingerprint: true
+    },
+    shouldUpdateCard: true,
+    uiOptions: {
+      displaySubmitButton: false,
+      hideBilling: {
+        hideAddressOne: false,
+        hideAddressTwo: false,
+        hideCity: false,
+        hideCountry: false,
+        hidePostal: false,
+        hidePhone: true,
+        hideState: false
+      },
+      hideCvc: false,
+      requireCvc: true,
+      forceExpirationSelection: true
+    },
+    isAuthOnly: false
+  }
+};
+
+axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
